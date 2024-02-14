@@ -32,51 +32,51 @@ public class WalletController {
 
     @PostMapping("/")
     @ResponseBody
-    public ResponseEntity<Mono<Void>> createWallet(@RequestBody WalletCreateDTO wallet, ServerWebExchange exchange) {
+    public ResponseEntity<Mono<Void>> create(@RequestBody WalletCreateDTO wallet, ServerWebExchange exchange) {
         return new ResponseEntity<>(walletService.create(wallet)
-                .doOnSubscribe(unused -> log.info("createWallet:: iniciando"))
-                .doOnError(throwable -> log.error("createWallet:: error " + throwable.getMessage()))
-                .doOnSuccess(ignored -> log.info("createWallet:: finalizado con exito")), HttpStatus.CREATED);
+                .doOnSubscribe(unused -> log.info("create:: iniciando"))
+                .doOnError(throwable -> log.error("create:: error " + throwable.getMessage()))
+                .doOnSuccess(ignored -> log.info("create:: finalizado con exito")), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<Mono<Void>> deleteWallet(@PathVariable("id") String walletId, ServerWebExchange exchange) {
+    public ResponseEntity<Mono<Void>> delete(@PathVariable("id") String walletId, ServerWebExchange exchange) {
         return new ResponseEntity<>(walletService.delete(walletId)
-                .doOnSubscribe(unused -> log.info("deleteWallet:: iniciando"))
-                .doOnError(throwable -> log.error("deleteWallet:: error " + throwable.getMessage()))
-                .doOnSuccess(ignored -> log.info("deleteWallet:: finalizado con exito")), HttpStatus.CREATED);
+                .doOnSubscribe(unused -> log.info("delete:: iniciando"))
+                .doOnError(throwable -> log.error("delete:: error " + throwable.getMessage()))
+                .doOnSuccess(ignored -> log.info("delete:: finalizado con exito")), HttpStatus.CREATED);
     }
 
     @GetMapping("/")
     @ResponseBody
-    public ResponseEntity<Flux<WalletEntity>> getAllWallets(ServerWebExchange exchange) {
+    public ResponseEntity<Flux<WalletEntity>> getAll(ServerWebExchange exchange) {
         return ResponseEntity.ok(
                 walletService.getList()
-                        .doOnSubscribe(unused -> log.info("getAllWallets:: iniciando"))
-                        .doOnError(throwable -> log.error("getAllWallets:: error " + throwable.getMessage()))
-                        .doOnComplete(() -> log.info("getAllWallets:: completadoo")));
+                        .doOnSubscribe(unused -> log.info("getAll:: iniciando"))
+                        .doOnError(throwable -> log.error("getAll:: error " + throwable.getMessage()))
+                        .doOnComplete(() -> log.info("getAll:: completadoo")));
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<Mono<WalletEntity>> getWalletById(@PathVariable("id") String walletId,
+    public ResponseEntity<Mono<WalletEntity>> getById(@PathVariable("id") String walletId,
             ServerWebExchange exchange) {
         return ResponseEntity.ok(
                 walletService.getDetail(walletId)
-                        .doOnSubscribe(unused -> log.info("getWalletById:: iniciando"))
-                        .doOnError(throwable -> log.error("getWalletById:: error " + throwable.getMessage()))
-                        .doOnSuccess((e) -> log.info("getWalletById:: completadoo")));
+                        .doOnSubscribe(unused -> log.info("getById:: iniciando"))
+                        .doOnError(throwable -> log.error("getById:: error " + throwable.getMessage()))
+                        .doOnSuccess((e) -> log.info("getById:: completadoo")));
     }
 
     @PostMapping("/movement")
     @ResponseBody
-    public ResponseEntity<Mono<Void>> createMovementWallet(@RequestBody MovementCreateDTO movementWallet,
+    public ResponseEntity<Mono<Void>> createMovement(@RequestBody MovementCreateDTO movementWallet,
             ServerWebExchange exchange) {
         return new ResponseEntity<>(walletService.createTransaction(movementWallet)
-                .doOnSubscribe(unused -> log.info("createMovementWallet:: iniciando"))
-                .doOnError(throwable -> log.error("createMovementWallet:: error " + throwable.getMessage()))
-                .doOnSuccess(ignored -> log.info("createMovementWallet:: finalizado con exito")),
+                .doOnSubscribe(unused -> log.info("createMovement:: iniciando"))
+                .doOnError(throwable -> log.error("createMovement:: error " + throwable.getMessage()))
+                .doOnSuccess(ignored -> log.info("createMovement:: finalizado con exito")),
                 HttpStatus.CREATED);
     }
 

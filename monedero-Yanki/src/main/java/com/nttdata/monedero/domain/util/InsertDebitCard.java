@@ -16,9 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.kafka.core.KafkaTemplate;
 import reactor.core.publisher.Mono;
 
-/**
- * Estrategia implementada cuando lo asocia a trarjeta de debito.
- */
 
 public class InsertDebitCard extends InsertWhenDebitCard {
 

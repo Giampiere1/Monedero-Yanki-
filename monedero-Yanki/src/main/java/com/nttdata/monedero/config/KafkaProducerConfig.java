@@ -11,19 +11,13 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
-/**
- *Clase que configura el producer de kafka.
- */
+
 @Configuration
 public class KafkaProducerConfig {
   @Value("${spring.kafka.bootstrapServers}")
   private String bootstrapServers;
 
-  /**
-   * Las configuraciones.
-   *
-   * @return retorna las configuraciones.
-   */
+
   public Map<String, Object> producerConfig() {
     Map<String, Object> properties = new HashMap<>();
     properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);

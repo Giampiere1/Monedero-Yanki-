@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import reactor.core.publisher.Mono;
 
-/**
- * Context de la estrategia.
- */
+
 public class ContextInsert {
   private IStrategyInsertMovement iStrategyInsertMovement;
 

@@ -16,9 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.kafka.core.KafkaTemplate;
 import reactor.core.publisher.Mono;
 
-/**
- * Estrategia para insertar wallet solo con dni.
- */
+
 public class InsertDocument extends InsertWhenDocument {
   @Override
   Mono<Void> verifyBalanceSuficien(WalletEntity wallet, MovementEntity movementWallet) {
